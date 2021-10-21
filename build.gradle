@@ -10,10 +10,35 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-core
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: '2.6.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-junit
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: '2.6.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-screenplay
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: '2.6.0'
+    // https://mvnrepository.com/artifact/net.serenity-bdd/serenity-cucumber
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.9.51'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.0.0'
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    implementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.0.0'
+
+    // https://jar-download.com
+    //implementation group: 'info.cukes', name: 'cucumber-junit', version: '1.2.2'
+
+    // https://mvnrepository.com/artifact/net.thucydides/thucydides-core
+    //implementation group: 'net.thucydides', name: 'thucydides-core', version: '0.9.275'
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 }
 
 test {
     useJUnitPlatform()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
 }
